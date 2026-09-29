@@ -34,20 +34,14 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	private $page; // TODO; DELETE IF NOT IN USE
 
 
+	// /**
+	//  *   construct.
+	//  *
+	//  * @param Page $page // The current Gift Card Product page this virtual field was called from.
+	//  * @return mixed
+	//  */
+    // public function __construct(Page $page) { // TODO; DELETE IF NOT IN USE
 
-	/**
-	 * Construct
-	 *
-	 * @param Page $page The current Gift Card Product page this virtual field was called from.
-	 *
-	 */
-	//  /**
-   *   construct.
-   *
-   * @param Page $page
-   * @return mixed
-   */
-  public function __construct(Page $page) { // TODO; DELETE IF NOT IN USE
 	/**
 	 *   construct.
 	 *
@@ -73,9 +67,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	 */
 	public function getPrependContent($page, $name) {
 		$pageID = $page->id;
-
-
-
 
 
 		// for reuse later in markup builders
@@ -140,7 +131,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	 */
 	public function getAppendContent($page, $name) {
 		// @note: $name and $page here are provided by the requesting method, e.g. runtime markup module
-
 
 		return $this->renderFooter($page, $name);
 	}
@@ -242,12 +232,12 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 
 
 		/*
-													The a.classes explainer
-													- pwcommerce_reload_inputfield_runtimemarkup_list: signals to InputfieldPWCommerceRuntimeMarkup that inputfields will need to be reloaded since new item inserted and the JS will need to catch on, e.g. RTE, etc.
-													- pwcommerce_run_after_settle_operations: tells InputfieldPWCommerceRuntimeMarkup that htmx-after-settle operations will need to be run.
-													- pwcommerce_open_newly_created_inputfieldset: tells InputfieldPWCommerceRuntimeMarkup the specific after-settle action to take.
-													- pwcommerce_focus_input_in_newly_created_inputfield: tells InputfieldPWCommerceRuntimeMarkup to focus the InputfieldPageTitle input after new gift card product variant is added
-													*/
+		The a.classes explainer
+		- pwcommerce_reload_inputfield_runtimemarkup_list: signals to InputfieldPWCommerceRuntimeMarkup that inputfields will need to be reloaded since new item inserted and the JS will need to catch on, e.g. RTE, etc.
+		- pwcommerce_run_after_settle_operations: tells InputfieldPWCommerceRuntimeMarkup that htmx-after-settle operations will need to be run.
+		- pwcommerce_open_newly_created_inputfieldset: tells InputfieldPWCommerceRuntimeMarkup the specific after-settle action to take.
+		- pwcommerce_focus_input_in_newly_created_inputfield: tells InputfieldPWCommerceRuntimeMarkup to focus the InputfieldPageTitle input after new gift card product variant is added
+		*/
 		# @NOTE: we use nth-child(2) here since in this context we have both append and prepend markup; Using first-child will cause new item to be inserted before the last gift card product variant; we want it to be inserted after.
 		$out =
 			"<div id='pwcommerce_gift_card_product_variant_add_new_wrapper' class='pwcommerce_add_new_wrapper'>" .
@@ -286,22 +276,13 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	 */
 	public function getDynamicallyManagedInputfields(InputfieldWrapper $inputfields, Page $page) {
 
-
-
-
-
-
 		foreach ($inputfields->children() as $inputfield) {
 
 			$attrs = $inputfield->attr(true);
 
 			$dataFieldName = $inputfield->attr('data-field-name');
 
-
-
-
 			if (strpos($inputfield->name, 'pwcommerce_images') !== false && $page->isNew) {
-
 				# remove pwcommerce image field
 				$inputfields->remove($inputfield);
 				# prepend markup about image field uploads after save
@@ -355,8 +336,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	 */
 	private function isGiftCardVariantPageAlreadyExists($parent, $denomination) {
 		// first check if page already exists (under this parent)
-
-
 		$pageIDExists = $this->wire('pages')->getRaw("parent_id={$parent->id}," . PwCommerce::PRODUCT_STOCK_FIELD_NAME . ".price={$denomination}", 'id');
 		// TODO: TEST THIS! NOT SURE IT WORKS?!
 		return !empty($pageIDExists);
@@ -377,16 +356,18 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 	// ~~~~~~~~~~~~~~~~~~
 
 	// TODO: NOT IN USE FOR NOW
-	// /**
-  * Process Ajax Request.
-  *
-  * @param WireInput $input
-  * @param Page $page
-  * @return mixed
-  */
- public function processAjaxRequest(WireInput $input, Page $page) {
+	// 
 
-	// }
+	/**
+	  * Process Ajax Request.
+	  *
+	  * @param WireInput $input
+	  * @param Page $page
+	  * @return mixed
+	  */
+	public function processAjaxRequest(WireInput $input, Page $page) {
+
+	}
 	// ~~~~~~~~~~~~~~~~~~
 
 	/**
@@ -444,10 +425,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 					// @note: our inputs are suffixed with 'repeaterxxxx'
 					$title = $sanitizer->text($parent->title) . ": " . $denomination;
 					$name = $sanitizer->pageName($title, true);
-
-
-
-
 
 					// first check if page already exists (under this parent)
 					if (!empty($this->isGiftCardVariantPageAlreadyExists($parent, $denomination))) {
@@ -516,9 +493,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 						}
 					}
 
-
-
-
 					//------------------
 					// SAVE the new gift card product variant page
 					$p->save();
@@ -545,8 +519,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 			$notice = sprintf(_n("Created %d gift card product variant.", "Created %d gift card product variants.", $count), $count);
 			$this->message($notice);
 		}
-
-
 
 		// ========
 		return $createdPagesIDs;
@@ -610,8 +582,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 					$incomingDenomination = (float) $input->{"pwcommerce_product_stock_price{$page->id}"};
 
 
-
-
 					# TODO HOW TO HANDLE INCOMING ALREADY EXISTS TITLE!!!! HOW TO CONTINUE WITHOUTH AFFECTING THINGS ELSEWHERE! LET PW HANDLE IT?
 					# -----
 					// IF DENOMINATION HAS CHANGED
@@ -652,8 +622,6 @@ class InputfieldPWCommerceGiftCardProductVariants extends WireData
 		$sanitizer = $this->wire('sanitizer');
 		$incomingGiftCardProductVariantsParentTitle = $sanitizer->text($input->title);
 		$existingGiftCardProductVariantsParentTitle = $sanitizer->text($this->getGiftCardProductVariantsParentTitle($parentPage));
-
-
 
 		// -------
 		return $incomingGiftCardProductVariantsParentTitle !== $existingGiftCardProductVariantsParentTitle;

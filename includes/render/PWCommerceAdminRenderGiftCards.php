@@ -236,17 +236,18 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// [$this->_('Usage'), 'pwcommerce_gift_cards_table_usage'],
 		];
 	}
-
-	//  /**
-   * Get Results Table.
-   *
-   * @param array $items
-   * @param array $headerRow
-   * @param array $rows
-   * @param array $options
-   * @return mixed
-   */
-  public function getResultsTable($items, array $headerRow, array $rows, array $options = []) {
+  
+	// /**
+ 	//   * Get Results Table.
+	//   *
+ 	//   * @param array $items
+ 	//   * @param array $headerRow
+ 	//   * @param array $rows
+ 	//   * @param array $options
+ 	//   * @return mixed
+ 	//   */
+ 	//  public function getResultsTable($items, array $headerRow, array $rows, array $options = []) {
+	
 	/**
 	 * Get Results Table.
 	 *
@@ -302,8 +303,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		}
 		return $out;
 	}
-
-
 
 	/**
 	 * Get Edit Item Title.
@@ -475,6 +474,7 @@ class PWCommerceProcessRenderGiftCards extends WireData
 
 		return $field->render();
 	}
+
 	/**
 	 * Get Issue Gift Card Button Markup.
 	 *
@@ -707,8 +707,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		return $out;
 	}
 
-
-
 	/**
 	 * Modal for MANUAL issue of Gift Cards.
 	 *
@@ -744,14 +742,14 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// i.e., in this context, i.e. 'prders'
 			// @note: we will swap inside this div (default innerHTML)
 			/*
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					@note:
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- 'pwcommerce_send_window_notification' will tell htmx:afterSettle look at the request config trigger element, grab details of a custom window event and send them to window.
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- Alpine will be listening to that window event.
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- In this case, it will use that to disabled the 'apply' button then close the modal shortly after.
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- this approach is versatile and doesn't need the server to know about the events that need to be sent
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- the event.detail.requestConfig.elt is our element with the event details; in this case it is the 'apply button'
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					- @see: $this->renderModalMarkupForManualIssueGiftCardSendButton()
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					*/
+				@note:
+			- 'pwcommerce_send_window_notification' will tell htmx:afterSettle look at the request config trigger element, grab details of a custom window event and send them to window.
+			- Alpine will be listening to that window event.
+			- In this case, it will use that to disabled the 'apply' button then close the modal shortly after.
+			- this approach is versatile and doesn't need the server to know about the events that need to be sent
+			- the event.detail.requestConfig.elt is our element with the event details; in this case it is the 'apply button'
+			- @see: $this->renderModalMarkupForManualIssueGiftCardSendButton()
+			*/
 			// TODO EDIT/DELETE HTXM ATTRIBUTES BELOW AS NEEDED
 			// "<div id='pwcommerce_manual_issue_gift_card' hx-get='{$ajaxgGetURL}' hx-indicator='#pwcommerce_manual_issue_gift_card_spinner_indicator' hx-trigger='pwcommercemanualissuegiftcardcodefetch' hx-target='#pwcommerce_manual_issue_gift_card_code' hx-swap='innerHTML' hx-vals='{$hxVals}' @pwcommercemanualissuegiftcardcodenotification.window='handleIssueGiftCard'>" .
 			"<div id='pwcommerce_manual_issue_gift_card' @pwcommercemanualissuegiftcardcodenotification.window='handleIssueGiftCard>" .
@@ -824,11 +822,11 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// 'type' => 'button',
 			# ALPINE JS #
 			/*
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													alpine js: disable apply button and apply opacity if applicable to some three use cases
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													i. payment status action: partly paid [3999]: if no payment method is selected OR part payment amount is empty
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													ii. payment status action: paid [4000]: if no payment method is selected
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													iii. payment status action: partly refunded [4998]: if refund amount is empty
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													*/
+			alpine js: disable apply button and apply opacity if applicable to some three use cases
+			i. payment status action: partly paid [3999]: if no payment method is selected OR part payment amount is empty
+			ii. payment status action: paid [4000]: if no payment method is selected
+			iii. payment status action: partly refunded [4998]: if refund amount is empty
+			*/
 			'x-bind:disabled' => "!{$xstore}.is_ready_apply_order_status_action",
 			'x-bind:class' => "{$xstore}.is_ready_apply_order_status_action ? `` : `opacity-50`",
 			#################
@@ -846,7 +844,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// 'data-send-notification-event-details' => "{$eventDetailsJSON}",
 
 		];
-
 
 		// -----------
 		$applyButton = $this->pwcommerce->getModalActionButton($applyButtonOptions, 'send');
@@ -882,7 +879,7 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		// TODO DELETE WHEN DONE
 		// $out .= $this->renderCountriesList();
 		// TODO @UPDATE: MONDAY 21 AUGUST 2023 1747: EDIT/DELETE BELOW! NO LONGER NEEDED AS NO CONNECTION BETWEEN MANUALLY ISSUED GIFT CARD AND GIFT CARD PRODUCTS!
-/*
+		/*
 		if (empty($this->isIssuingGiftCardsPossible())) {
 			//------------------- show message that needs to add at least one GCPV
 			$out .= $this->getMarkupForNotPossibleToIssueGiftCards();
@@ -893,8 +890,7 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// $out = $this->renderIssueGiftCardButton();
 			$out .= $this->getManuallyIssueGiftCardMarkup();
 		}
-
-*/
+		*/
 		$out = $this->getManuallyIssueGiftCardMarkup();
 
 		$description = $this->_('Gift Card Code');
@@ -967,8 +963,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 	 * @return mixed
 	 */
 	private function getManuallyIssueGiftCardMarkup() {
-
-
 
 		# TODO HERE NEED TO maybe add a wrapper ID to pass to htmx to get forms for htmx. e.g. do we need separate one for parent id or add hidden input for that here?
 
@@ -1435,13 +1429,15 @@ class PWCommerceProcessRenderGiftCards extends WireData
 	}
 
 	// TODO DELETE WHEN DONE; NO LONGER USING START DATE!
+	// 
 	// /**
-  * Get Markup For Manually Issue Gift Card Date Field.
-  *
-  * @param string $mode
-  * @return mixed
-  */
- private function getMarkupForManuallyIssueGiftCardDateField($mode = 'start') {
+	//  * Get Markup For Manually Issue Gift Card Date Field.
+	//  *
+	//  * @param string $mode
+	//  * @return mixed
+	//  */
+	// private function getMarkupForManuallyIssueGiftCardDateField($mode = 'start') {
+
 	/**
 	 * Get Markup For Manually Issue Gift Card Date Field.
 	 *
@@ -1611,6 +1607,7 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		# -----
 		return $field;
 	}
+
 	/**
 	 * Get Markup For Manually Issue Gift Card Admin Note Textarea Field.
 	 *
@@ -1642,8 +1639,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		return $field;
 
 	}
-
-
 
 	########################
 
@@ -1817,7 +1812,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 	 * @return mixed
 	 */
 	private function getMarkupForManuallyIssueGiftCardModal() {
-
 
 		//------------------- process issue gift card modal (getInputfieldMarkup)
 		// TODO NEEDED?
@@ -2032,13 +2026,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 		}
 		// ================
 
-
-
-
-
-
-
-
 		// ----
 		return $giftCardProductVariants;
 	}
@@ -2065,8 +2052,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			'status<' => Page::statusUnpublished,
 			// @note: conflicting with unpublished above? for now just ensuring not in trash using parent.template
 			// 'status<' => Page::statusTrash
-
-
 		];
 
 		// get a single gift card product variant (for checking if 'issue gift card' can be shown)
@@ -2090,7 +2075,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 
 		// =======
 		return $out;
-
 	}
 
 	/**
@@ -2123,7 +2107,6 @@ class PWCommerceProcessRenderGiftCards extends WireData
 			// no orders
 			'unused' => $this->_('Unused'),
 		];
-
 		// ------
 		return $filters;
 	}

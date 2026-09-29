@@ -990,7 +990,7 @@ class PWCommerceImport extends WireData
 		// TODO RETURN ARRAY WITH NOTICE AND NOTICE TYPE SIMILAR TO PWCOMMERCEACTIONS, E.G. SUCCESS AND CREATED 10 BRANDS
 
 		if (!empty($createdCount)) {
-			$noticeType = 'sucess';
+			$noticeType = 'success';
 			// prepare messages
 			$notice = sprintf(_n('Imported %1$d item of type %2$s.', 'Imported %1$d items of type %2$s.', $createdCount, $this->importType), $createdCount, $this->importType);
 		} else {
@@ -1052,19 +1052,19 @@ class PWCommerceImport extends WireData
 
 			# CHECK, GET OR CREATE AND SET ATTRIBUTE & ATTRIBUTE OPTIONS IDs
 			/*
-													 NOTES
-													 - We do this first so that we will have the IDs ready after generating cartesian products
-													 - this means we won't have to look for or create attributes and options AFTER generating cartesian products
-													 - we will only need a FLAT lookup array with IDs -> title matching pairs for the attributes and the attribute options
-													 e.g.
-													 [
-													 'Pattern' => 1245,
-													 'South America' => 3456,
-													 etc
-													 ]
-													 - attribute IDs will be set to $productPage->pwcommerce_product_attributes
-													 - attribute options IDs will be set to respective created $variantPage->pwcommerce_product_attributes_options
-													 */
+			 NOTES
+			 - We do this first so that we will have the IDs ready after generating cartesian products
+			 - this means we won't have to look for or create attributes and options AFTER generating cartesian products
+			 - we will only need a FLAT lookup array with IDs -> title matching pairs for the attributes and the attribute options
+			 e.g.
+			 [
+			 'Pattern' => 1245,
+			 'South America' => 3456,
+			 etc
+			 ]
+			 - attribute IDs will be set to $productPage->pwcommerce_product_attributes
+			 - attribute options IDs will be set to respective created $variantPage->pwcommerce_product_attributes_options
+			 */
 			$attributesAndAttributeOptions = $item['generate_variants'];
 			$this->setAttributeAndAttributeOptionsIDs($attributesAndAttributeOptions);
 
@@ -1100,7 +1100,7 @@ class PWCommerceImport extends WireData
 		// -------------
 
 		if (!empty($this->createdVariantsCount)) {
-			$noticeType = 'sucess';
+			$noticeType = 'success';
 			// prepare messages
 			$notice = sprintf(_n('Imported %1$d item of type %2$s.', 'Imported %1$d items of type %2$s.', $createdCount, $this->importType), $this->createdVariantsCount, $this->importType);
 			// ------

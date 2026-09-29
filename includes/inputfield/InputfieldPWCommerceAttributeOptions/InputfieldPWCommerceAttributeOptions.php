@@ -28,19 +28,14 @@ class InputfieldPWCommerceAttributeOptions extends WireData
 	private $page; // TODO; DELETE IF NOT IN USE
 
 
-	/**
-	 * Construct
-	 *
-	 * @param Page $page The current Attribute page this virtual field was called from.
-	 *
-	 */
-	//  /**
-   *   construct.
-   *
-   * @param Page $page
-   * @return mixed
-   */
-  public function __construct(Page $page) { // TODO; DELETE IF NOT IN USE
+	// /**
+	//  *   construct.
+	//  *
+	//  * @param Page $page // The current Attribute page this virtual field was called from.
+	//  * @return mixed
+	//  */
+    // public function __construct(Page $page) { // TODO; DELETE IF NOT IN USE
+
 	/**
 	 *   construct.
 	 *
@@ -122,12 +117,12 @@ class InputfieldPWCommerceAttributeOptions extends WireData
 		$adminEdit = "{$adminEditURL}?id={$pageID}&field={$name}&context=new_item";
 
 		/*
-												The a.classes explainer
-												- pwcommerce_reload_inputfield_runtimemarkup_list: signals to InputfieldPWCommerceRuntimeMarkup that inputfields will need to be reloaded since new item inserted and the JS will need to catch on, e.g. RTE, etc.
-												- pwcommerce_run_after_settle_operations: tells InputfieldPWCommerceRuntimeMarkup that htmx-after-settle operations will need to be run.
-												- pwcommerce_open_newly_created_inputfieldset: tells InputfieldPWCommerceRuntimeMarkup the specific after-settle action to take.
-												- pwcommerce_focus_input_in_newly_created_inputfield: tells InputfieldPWCommerceRuntimeMarkup to focus the InputfieldPageTitle input after new attribute option is added
-												*/
+		The a.classes explainer
+		- pwcommerce_reload_inputfield_runtimemarkup_list: signals to InputfieldPWCommerceRuntimeMarkup that inputfields will need to be reloaded since new item inserted and the JS will need to catch on, e.g. RTE, etc.
+		- pwcommerce_run_after_settle_operations: tells InputfieldPWCommerceRuntimeMarkup that htmx-after-settle operations will need to be run.
+		- pwcommerce_open_newly_created_inputfieldset: tells InputfieldPWCommerceRuntimeMarkup the specific after-settle action to take.
+		- pwcommerce_focus_input_in_newly_created_inputfield: tells InputfieldPWCommerceRuntimeMarkup to focus the InputfieldPageTitle input after new attribute option is added
+		*/
 
 		$out =
 			"<div id='pwcommerce_attribute_option_add_new_wrapper' class='pwcommerce_add_new_wrapper'>" .

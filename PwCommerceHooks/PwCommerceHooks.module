@@ -199,19 +199,14 @@ class PwCommerceHooks extends Wire implements Module {
 
 	// ~~~~~~~~~~~~~
 
-	//  /**
-   * Ready.
-   *
-   * @return mixed
-   */
-  public function ready() {
-	//
-
-	//
-
+	// /**
+ 	//   * Ready.
+ 	//   *
+ 	//   * @return mixed
+   	// 	*/
+ 	//  public function ready() {
 	//  }
 
-	////////////////////////////////////////
 	// ************* PAGE EDIT GUI **********
 
 	/**
@@ -313,12 +308,8 @@ class PwCommerceHooks extends Wire implements Module {
 
 	}
 
-	// ~~~~~~~~~~~~~~~~~
 
-	////////////////////////////////////////
 	// ************* PAGE EDIT **********
-
-	// ~~~~~~~~~~~~~~~~~
 
 	/**
 	 * This hook is called before ProcessPageEdit::ajaxSave.
@@ -689,10 +680,8 @@ class PwCommerceHooks extends Wire implements Module {
 		return $results;
 	}
 
-	////////////////////////////////////////
 	// ************* CART *********
 
-	////////////////////////////////////////
 	// ************* CUSTOM SHOP ROOT PAGE  *********
 
 	/**
@@ -886,7 +875,6 @@ class PwCommerceHooks extends Wire implements Module {
 
 	}
 
-	////////////////////////////////////////
 	// ************* CUSTOMERS  *********
 	/**
 	 * Hook to update customer and associated ProcessWire user and vice versa when certain changes happen in either.
@@ -956,7 +944,6 @@ class PwCommerceHooks extends Wire implements Module {
 
 	}
 
-	////////////////////////////////////////
 	// ************* PAGE SEARCH LIVE **********
 
 	/**
@@ -1323,8 +1310,6 @@ class PwCommerceHooks extends Wire implements Module {
 
 	}
 
-
-	////////////////////////////////////////
 	// ************* PRODUCTS **********
 
 	/**
@@ -1345,7 +1330,6 @@ class PwCommerceHooks extends Wire implements Module {
 		}
 	}
 
-	////////////////////////////////////////
 	// ************* OTHER *********
 
 	/**
@@ -1373,8 +1357,6 @@ class PwCommerceHooks extends Wire implements Module {
 		// $value = "<div id='pwcommerce_rest_of_the_world_countries'>{$countriesString}</div>";
 		$event->return = $value;
 	}
-
-	// ~~~~~~~~~~~~~~~~~~~
 
 	/**
 	 * Move Field To Other Tab.
@@ -1439,8 +1421,6 @@ class PwCommerceHooks extends Wire implements Module {
 		}
 	}
 
-	// ~~~~~~~~~~~~~~~~~~~
-
 	/**
 	 * Removes tabs depending on context.
 	 *
@@ -1476,8 +1456,6 @@ class PwCommerceHooks extends Wire implements Module {
 		$event->object->removeTab($id);
 	}
 
-	// ~~~~~~~~~~~~~~~~~~~
-
 	/**
 	 * Replace Rest Of The World Countries Markup.
 	 *
@@ -1497,8 +1475,6 @@ class PwCommerceHooks extends Wire implements Module {
 			$page->addHookAfter("InputfieldTextTags::render", $this, "hookModifyRestOfTheWorldShippingZoneCountriesGUI");
 		}
 	}
-
-	// ~~~~~~~~~~~~~~~~~~~
 
 	/**
 	 * Get Modify Edit Form G U I Templates.
@@ -1534,7 +1510,6 @@ class PwCommerceHooks extends Wire implements Module {
 		];
 	}
 
-	// ~~~~~~~~~~~~~~~~~~~
 	/**
 	 * Is Remove Process Page Edit Delete Tab.
 	 *
@@ -1553,7 +1528,6 @@ class PwCommerceHooks extends Wire implements Module {
 		return $isRemovingProcessPageEditDeleteTab;
 	}
 
-	// ~~~~~~~~~~~~~~~~~~~
 	/**
 	 * Get Hide Fields.
 	 *
@@ -1618,8 +1592,6 @@ class PwCommerceHooks extends Wire implements Module {
 		$id = str_replace($_SERVER['HTTP_X_FIELDNAME'], $this->ajaxFieldName, $id);
 		$inputfield->attr('id', $id);
 	}
-
-	// ~~~~~~~~~~~~~~~~~
 
 	// OTHER
 

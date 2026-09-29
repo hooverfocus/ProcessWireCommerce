@@ -5127,7 +5127,7 @@ class PWCommerceCurrencies extends WireData
 							'fr-CH' =>
 								[
 									'locale_code' => 'fr-CH',
-									'currency_symbol' => 'CHW',
+									'currency_symbol' => 'CHF',
 									'currency_symbol_placement' => 'last',
 									'decimal_separator' => '.',
 									'thousand_separator' => ' ',
@@ -5135,7 +5135,7 @@ class PWCommerceCurrencies extends WireData
 							'de-CH' =>
 								[
 									'locale_code' => 'de-CH',
-									'currency_symbol' => 'CHW',
+									'currency_symbol' => 'CHF',
 									'currency_symbol_placement' => 'first',
 									'decimal_separator' => '.',
 									'thousand_separator' => '’',
@@ -5143,7 +5143,7 @@ class PWCommerceCurrencies extends WireData
 							'it-CH' =>
 								[
 									'locale_code' => 'it-CH',
-									'currency_symbol' => 'CHW',
+									'currency_symbol' => 'CHF',
 									'currency_symbol_placement' => 'first',
 									'decimal_separator' => '.',
 									'thousand_separator' => '’',
@@ -5151,101 +5151,101 @@ class PWCommerceCurrencies extends WireData
 							'rm-CH' =>
 								[
 									'locale_code' => 'rm-CH',
-									'currency_symbol' => 'CHW',
+									'currency_symbol' => 'CHF',
 									'currency_symbol_placement' => 'first',
 									'decimal_separator' => '.',
 									'thousand_separator' => ',',
 								],
 						],
 				],
-			228 =>
-				[
-					'country' => 'Switzerland',
-					'currency' => 'WIR Euro',
-					'alphabetic_code' => 'CHE',
-					'numeric_code' => '947',
-					'minor_unit' => '2',
-					'country_code' => 'CH',
-					'locale_codes' =>
-						[
-							'fr-CH' =>
-								[
-									'locale_code' => 'fr-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'last',
-									'decimal_separator' => '.',
-									'thousand_separator' => ' ',
-								],
-							'de-CH' =>
-								[
-									'locale_code' => 'de-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => '’',
-								],
-							'it-CH' =>
-								[
-									'locale_code' => 'it-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => '’',
-								],
-							'rm-CH' =>
-								[
-									'locale_code' => 'rm-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => ',',
-								],
-						],
-				],
-			229 =>
-				[
-					'country' => 'Switzerland',
-					'currency' => 'WIR Franc',
-					'alphabetic_code' => 'CHW',
-					'numeric_code' => '948',
-					'minor_unit' => '2',
-					'country_code' => 'CH',
-					'locale_codes' =>
-						[
-							'fr-CH' =>
-								[
-									'locale_code' => 'fr-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'last',
-									'decimal_separator' => '.',
-									'thousand_separator' => ' ',
-								],
-							'de-CH' =>
-								[
-									'locale_code' => 'de-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => '’',
-								],
-							'it-CH' =>
-								[
-									'locale_code' => 'it-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => '’',
-								],
-							'rm-CH' =>
-								[
-									'locale_code' => 'rm-CH',
-									'currency_symbol' => 'CHW',
-									'currency_symbol_placement' => 'first',
-									'decimal_separator' => '.',
-									'thousand_separator' => ',',
-								],
-						],
-				],
+			// 228 =>
+			// 	[
+			// 		'country' => 'Switzerland',
+			// 		'currency' => 'WIR Euro',
+			// 		'alphabetic_code' => 'CHE',
+			// 		'numeric_code' => '947',
+			// 		'minor_unit' => '2',
+			// 		'country_code' => 'CH',
+			// 		'locale_codes' =>
+			// 			[
+			// 				'fr-CH' =>
+			// 					[
+			// 						'locale_code' => 'fr-CH',
+			// 						'currency_symbol' => 'CHE',
+			// 						'currency_symbol_placement' => 'last',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => ' ',
+			// 					],
+			// 				'de-CH' =>
+			// 					[
+			// 						'locale_code' => 'de-CH',
+			// 						'currency_symbol' => 'CHE',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => '’',
+			// 					],
+			// 				'it-CH' =>
+			// 					[
+			// 						'locale_code' => 'it-CH',
+			// 						'currency_symbol' => 'CHE',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => '’',
+			// 					],
+			// 				'rm-CH' =>
+			// 					[
+			// 						'locale_code' => 'rm-CH',
+			// 						'currency_symbol' => 'CHE',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => ',',
+			// 					],
+			// 			],
+			// 	],
+			// 229 =>
+			// 	[
+			// 		'country' => 'Switzerland',
+			// 		'currency' => 'WIR Franc',
+			// 		'alphabetic_code' => 'CHW',
+			// 		'numeric_code' => '948',
+			// 		'minor_unit' => '2',
+			// 		'country_code' => 'CH',
+			// 		'locale_codes' =>
+			// 			[
+			// 				'fr-CH' =>
+			// 					[
+			// 						'locale_code' => 'fr-CH',
+			// 						'currency_symbol' => 'CHW',
+			// 						'currency_symbol_placement' => 'last',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => ' ',
+			// 					],
+			// 				'de-CH' =>
+			// 					[
+			// 						'locale_code' => 'de-CH',
+			// 						'currency_symbol' => 'CHW',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => '’',
+			// 					],
+			// 				'it-CH' =>
+			// 					[
+			// 						'locale_code' => 'it-CH',
+			// 						'currency_symbol' => 'CHW',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => '’',
+			// 					],
+			// 				'rm-CH' =>
+			// 					[
+			// 						'locale_code' => 'rm-CH',
+			// 						'currency_symbol' => 'CHW',
+			// 						'currency_symbol_placement' => 'first',
+			// 						'decimal_separator' => '.',
+			// 						'thousand_separator' => ',',
+			// 					],
+			// 			],
+			// 	],
 			230 =>
 				[
 					'country' => 'Syria',
