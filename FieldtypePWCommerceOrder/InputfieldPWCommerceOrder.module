@@ -22,10 +22,6 @@ namespace ProcessWire;
 
 class InputfieldPWCommerceOrder extends Inputfield
 {
-
-
-
-
 	/**
 	 * Get Module Info.
 	 *
@@ -87,11 +83,7 @@ class InputfieldPWCommerceOrder extends Inputfield
 		// if we want this modules css and js classes to be autoloaded
 		// Any modules that extend: Inputfield, Process or ModuleJS will auto-load their CSS/JS files if they have the same name as the module and appear in the same directory. However, in order for that to work, their init() method has to be called. So if your module extends one of those, and has an init() method, then make sure to call the parent init() method:
 
-
-
 		// GET UTILITIES CLASS
-
-
 
 		// ==================
 		$this->xstoreOrder = 'InputfieldPWCommerceOrderStore';
@@ -278,7 +270,7 @@ class InputfieldPWCommerceOrder extends Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		$this->preloadInputfieldAssets();
 		// #####################
 		// load helper classes for InputfieldPWCommerceOrder
@@ -792,10 +784,10 @@ class InputfieldPWCommerceOrder extends Inputfield
 
 
 		/* ############ checks #########
-																										- if no shipping rates were matched because shipping is not applicable
-																										- we will not have a first() above
-																										- hence, create empty WireData() with dummy values
-																										*/
+		- if no shipping rates were matched because shipping is not applicable
+		- we will not have a first() above
+		- hence, create empty WireData() with dummy values
+		*/
 		if ($order->noticeTypeText === 'shipping_not_applicable') {
 			$matchedShippingRate = new WireData();
 			$matchedShippingRate->shippingRate = 0;
@@ -806,7 +798,6 @@ class InputfieldPWCommerceOrder extends Inputfield
 			// @note: this is a WireArray hence the first()!
 			/** @var WireData $matchedShippingRate */
 			$matchedShippingRate = $this->singleMatchedShippingRate = $matchedShippingRates->first();
-
 		}
 
 
@@ -857,8 +848,6 @@ class InputfieldPWCommerceOrder extends Inputfield
 	private function getOrderHiddenMarkupForOtherCalculatedAmounts(WireData $order) {
 		/** @var float $orderTotalPrice */
 
-
-
 		$shippingRate = 0;
 		// if only a single shipping rate was matched
 		if (empty($this->isMatchedMultipleShippingRates)) {
@@ -898,9 +887,6 @@ class InputfieldPWCommerceOrder extends Inputfield
 
 	// TODO MAYBE ALSO MOVE PROCESSING TO EXTERNAL FILE?
 
-
-
-
 	/**
 	 * Process input for the values sent for manual order editing.
 	 *
@@ -929,20 +915,20 @@ class InputfieldPWCommerceOrder extends Inputfield
 
 		// TODO OK COMMENTED OUT?
 		// return;
-
-
 	}
 
 	// TODO RENAME THIS!
-	// /**
-  * Process Input Post Process After Save.
-  *
-  * @param WireInputData $input
-  * @param Page $orderPage
-  * @param bool $isLiveCalculateOnly
-  * @return mixed
-  */
- public function processInputPostProcessAfterSave(WireInputData $input, Page $orderPage, bool $isLiveCalculateOnly = false) {
+		// /**
+		//  * Process Input Post Process After Save.
+		//  *
+		//  * @param WireInputData $input
+		//  * @param Page $orderPage
+		//  * @param bool $isLiveCalculateOnly
+		//  * @return mixed
+		//  */
+		// public function processInputPostProcessAfterSave(WireInputData $input, Page $orderPage, bool $isLiveCalculateOnly = false) {
+		// }
+
 	/**
 	 * Process Non Save Live Order.
 	 *
@@ -951,10 +937,6 @@ class InputfieldPWCommerceOrder extends Inputfield
 	 * @return mixed
 	 */
 	public function processNonSaveLiveOrder(WireInputData $input, Page $orderPage) {
-
-
-
-
 		$classesToLoad = $this->getRequiredClasses(['InputfieldPWCommerceOrderProcessManualOrder']);
 		$this->loadRequiredClasses($classesToLoad);
 		// TODO: WON'T SAVE MAYBE SINCE CALLED EXTERNALY? @CHANGED TO processOrderCustomerForSaving

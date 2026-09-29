@@ -147,7 +147,7 @@ class InputfieldPWCommerceNotes extends Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		return parent::renderReady($parent, $renderValueMode);
 	}
 
@@ -230,17 +230,8 @@ class InputfieldPWCommerceNotes extends Inputfield
 		return $wrapper->render();
 	}
 
-	// TODO: OK PASS VARIABLE LIKE THIS? THIS IS INHERITED FROM INPUTFIELD!
-	// TODO: THIS IS THROWING ERROR IN PHP 8 ENVIRONMENTS DUE TO THE OVERLOADING OF renderValue() with $notes!
-	// /**
-  *    render Value.
-  *
-  * @param mixed $notes
-  * @return mixed
-  */
- public function ___renderValue($notes) {
 	/**
-	 *    render Value.
+	 * Render Value.
 	 *
 	 * @return mixed
 	 */
@@ -249,16 +240,6 @@ class InputfieldPWCommerceNotes extends Inputfield
 		return $this->buildForm(true);
 	}
 
-	// ~~~~~~~~~~~~~~~
-
-	// /**
-  * Build Form.
-  *
-  * @param mixed $notes
-  * @param bool $isRenderValueOnly
-  * @return mixed
-  */
- private function buildForm($notes, bool $isRenderValueOnly = false) {
 	/**
 	 * Build Form.
 	 *
@@ -269,8 +250,6 @@ class InputfieldPWCommerceNotes extends Inputfield
 		// TODO: SHOULD WE SHOW SUBSCRIPT ON NOTE, AS ADMIN, SYSTEM, CUSTOMER ETC? maybe under author?
 
 		$notes = $this->notes;
-
-
 
 		// GET MAIN WRAPPER
 		$wrapper = $this->pwcommerce->getInputfieldWrapper();
@@ -293,7 +272,6 @@ class InputfieldPWCommerceNotes extends Inputfield
 		];
 		$field = $this->pwcommerce->getInputfieldMarkup($options);
 		$wrapper->add($field);
-
 
 		// BUILD NOTE ROWS
 

@@ -34,30 +34,29 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 			'installs' => 'InputfieldPWCommerceProductStock',
 		);
 	}
-
-	//  /**
-   * Init.
-   *
-   * @return mixed
-   */
-  public function init() {
-	//   parent::init();
-
-	//  }
+ 
+	/**
+	 * Init.
+	 *
+	 * @return mixed
+	 */
+	public function init() {
+		// parent::init();
+	}
 
 	/**
 	 * Just here to fulfill ConfigurableModule interface.
-	 *
 	 */
-	/*/**
+
+	/**
 	 * Get Module Config Inputfields.
 	 *
 	 * @param array $data
 	 * @return mixed
 	 */
 	public static function getModuleConfigInputfields(array $data) {
-																																																										 return new InputfieldWrapper();
-																																																										 }*/
+		return new InputfieldWrapper();
+	}
 
 	/**
 	 * Return the required Inputfield used to populate a field of this type.
@@ -149,7 +148,6 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 		// -------------
 		$this->pwcommerce->isUseSaleAndNormalPriceFields();
 
-
 		// =========
 		// get empty prices array (empty values)
 		$prices = $this->getPricesEmptyValues();
@@ -177,8 +175,6 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 
 		// ==================
 		return $prices;
-
-
 	}
 
 	/**
@@ -223,8 +219,6 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 
 		return $prices;
 	}
-
-
 
 	/**
 	 * Get Prices For Price And Compare Price.
@@ -437,8 +431,6 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 		return $prices;
 	}
 
-
-
 	/**
 	 * Given a raw value (value as stored in DB), return the value as it would appear in a Page object.
 	 *
@@ -589,9 +581,9 @@ class FieldtypePWCommerceProductStock extends Fieldtype {
 		//---------
 
 		/*
-																																																																																																																					- MySQL knows what "=" and ">" are, but it doesn't know what "%=", "~=", "^=" OR "$=" are
-																																																																																																																					- the latter allow for finer, fulltext search
-																																																																																																																					 */
+		- MySQL knows what "=" and ">" are, but it doesn't know what "%=", "~=", "^=" OR "$=" are
+		- the latter allow for finer, fulltext search
+		 */
 		// if 'normal' sql operators, do 'normal' query, else do fulltext search
 		if ($this->wire('database')->isOperator($operator)) {
 			return parent::getMatchQuery($query, $table, $subfield, $operator, $value);

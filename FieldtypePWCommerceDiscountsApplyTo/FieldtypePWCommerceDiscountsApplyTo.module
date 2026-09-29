@@ -46,26 +46,30 @@ class FieldtypePWCommerceDiscountsApplyTo extends FieldtypeMulti
 	// @for use in InputfieldPWCommerceDiscountsApplyTo
 	protected $page;
 
-	# TODO EXPERIMENTING NOT HAVING AN INPUT FIELD
 	/**
-	 * Return the required Inputfield used to populate a field of this type
-	 *
-	 */
-	// /**
-  * Get Inputfield.
-  *
-  * @param Page $page
-  * @param Field $field
-  * @return mixed
-  */
- public function getInputfield(Page $page, Field $field) {
-	// 	$inputfield = $this->wire('modules')->get("InputfieldPWCommerceDiscountsApplyTo");
-	// 	// our inputfield requires a Page and Field
-	// 	// @note: these two are methods in InputfieldPWCommerceDiscountsApplyTo
-	// 	$inputfield->setPage($page);
-	// 	$inputfield->setField($field);
-	// 	return $inputfield;
-	// }
+     * Return the required Inputfield used to populate a field of this type.
+     * (TODO: experimenting with not having an input field)
+     *
+     * @param Page $page
+     * @param Field $field
+     * @return mixed
+     */
+    public function getInputfield(Page $page, Field $field) {
+        // Disabled inputfield - return null so ProcessWire handles it smoothly
+        return null;
+
+        /*
+        // Un-comment when InputfieldPWCommerceDiscountsApplyTo is ready:
+        $inputfield = $this->wire('modules')->get("InputfieldPWCommerceDiscountsApplyTo");
+        // our inputfield requires a Page and Field
+		// @note: these two are methods in InputfieldPWCommerceDiscountsApplyTo
+        if ($inputfield) {
+            $inputfield->setPage($page);
+            $inputfield->setField($field);
+        }
+        return $inputfield;
+        */
+    }
 
 	/**
 	 * Get a blank value of this type, i.e. return a blank WireArray
@@ -306,8 +310,8 @@ class FieldtypePWCommerceDiscountsApplyTo extends FieldtypeMulti
 		}
 
 		/*- MySQL knows what "=" and ">" are, but it doesn't know what "%=", "~=", "^=" OR "$=" are
-																																												- the latter allow for finer, fulltext search
-																																										*/
+		- the latter allow for finer, fulltext search
+		*/
 		// if 'normal' sql operators, do 'normal' query, else do fulltext search
 		if ($this->wire('database')->isOperator($operator)) {
 			return parent::getMatchQuery($query, $table, $subfield, $operator, $value);

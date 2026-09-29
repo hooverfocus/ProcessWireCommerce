@@ -198,7 +198,7 @@ class InputfieldPWCommerceProductStock extends Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		// if currency locale set..
 		// grab symbol; we use on price fields description
 		$shopCurrencySymbolString = $this->pwcommerce->renderShopCurrencySymbolString();

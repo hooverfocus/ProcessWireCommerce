@@ -10,12 +10,12 @@ class PWCommercePaymentInvoice extends PWCommercePayment implements PWCommerceAd
 	public $delayedPayment = true;
 
 	// /**
-  * Init.
-  *
-  * @return mixed
-  */
- public function init() {
-	// 	$this->currency = $this->defaultCurrency;
+	//   * Init.
+	//   *
+	//   * @return mixed
+	//   */
+	// public function init() {
+	// // 	$this->currency = $this->defaultCurrency;
 	// }
 
 	// TODO @KONGONDO PORT

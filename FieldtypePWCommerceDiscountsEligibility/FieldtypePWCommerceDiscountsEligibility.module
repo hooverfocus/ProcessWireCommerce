@@ -32,8 +32,8 @@ class FieldtypePWCommerceDiscountsEligibility extends FieldtypeMulti
 			'version' => "100",
 			'href' => 'https://kongondo.com',
 			'summary' => 'Field that stores PWCommerce discounts eligibility.',
-			# TODO EXPERIMENTING NOT HAVING AN INPUT FIELD
-			# @note: we also hide this in field settings (input > visibility)
+			// TODO EXPERIMENTING NOT HAVING AN INPUT FIELD
+			// @note: we also hide this in field settings (input > visibility)
 			// 'installs' => 'InputfieldPWCommerceDiscountsEligibility',
 		);
 	}
@@ -46,26 +46,29 @@ class FieldtypePWCommerceDiscountsEligibility extends FieldtypeMulti
 	// @for use in InputfieldPWCommerceDiscountsEligibility
 	protected $page;
 
-	# TODO EXPERIMENTING NOT HAVING AN INPUT FIELD
 	/**
 	 * Return the required Inputfield used to populate a field of this type
+	 * (TODO: experimenting with not having an input field)
 	 *
+	 * @param Page $page
+	 * @param Field $field
+	 * @return mixed
 	 */
-	// /**
-  * Get Inputfield.
-  *
-  * @param Page $page
-  * @param Field $field
-  * @return mixed
-  */
- public function getInputfield(Page $page, Field $field) {
-	// 	$inputfield = $this->wire('modules')->get("InputfieldPWCommerceDiscountsEligibility");
-	// 	// our inputfield requires a Page and Field
-	// 	// @note: these two are methods in InputfieldPWCommerceDiscountsEligibility
-	// 	$inputfield->setPage($page);
-	// 	$inputfield->setField($field);
-	// 	return $inputfield;
-	// }
+	 public function getInputfield(Page $page, Field $field) {
+        // Disabled inputfield - return null so ProcessWire handles it smoothly
+        return null;
+
+        /*
+		$inputfield = $this->wire('modules')->get("InputfieldPWCommerceDiscountsEligibility");
+		// 	our inputfield requires a Page and Field
+		// 	@note: these two are methods in InputfieldPWCommerceDiscountsEligibility
+        if ($inputfield) {
+            $inputfield->setPage($page);
+            $inputfield->setField($field);
+        }
+        return $inputfield;
+        */
+	}
 
 	/**
 	 * Get a blank value of this type, i.e. return a blank WireArray
@@ -304,8 +307,8 @@ class FieldtypePWCommerceDiscountsEligibility extends FieldtypeMulti
 		}
 
 		/*- MySQL knows what "=" and ">" are, but it doesn't know what "%=", "~=", "^=" OR "$=" are
-																																																							- the latter allow for finer, fulltext search
-																																																					*/
+		- the latter allow for finer, fulltext search
+		*/
 		// if 'normal' sql operators, do 'normal' query, else do fulltext search
 		if ($this->wire('database')->isOperator($operator)) {
 			return parent::getMatchQuery($query, $table, $subfield, $operator, $value);

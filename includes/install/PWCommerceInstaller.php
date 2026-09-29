@@ -2945,15 +2945,16 @@ class PWCommerceInstaller extends WireData {
 
 	}
 
-	// /**
-  * Process Other Optional Settings Custom Shop Root Page.
-  *
-  * @param mixed $incomingIsUseCustomShopRootPage
-  * @param int $incomingCustomShopRootPageID
-  * @param mixed $incomingCustomShopRootPageChildren
-  * @return mixed
-  */
- private function processOtherOptionalSettingsCustomShopRootPage($incomingIsUseCustomShopRootPage, $incomingCustomShopRootPageID, $incomingCustomShopRootPageChildren) {
+	// *
+	 //  * Process Other Optional Settings Custom Shop Root Page.
+	 //  *
+	 //  * @param mixed $incomingIsUseCustomShopRootPage
+	 //  * @param int $incomingCustomShopRootPageID
+	 //  * @param mixed $incomingCustomShopRootPageChildren
+	 //  * @return mixed
+	  
+	 // private function processOtherOptionalSettingsCustomShopRootPage($incomingIsUseCustomShopRootPage, $incomingCustomShopRootPageID, $incomingCustomShopRootPageChildren) {}
+
 	/**
 	 * Process Other Optional Settings Custom Shop Root Page.
 	 *

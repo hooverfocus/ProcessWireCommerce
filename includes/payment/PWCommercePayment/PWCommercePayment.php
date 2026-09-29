@@ -56,12 +56,14 @@ abstract class PWCommercePayment extends WireData implements Module
 	 * Returns the client friendly title for the payment.
 	 * @return string
 	 */
-	// /**
-  * Get Title.
-  *
-  * @return mixed
-  */
- abstract public function getTitle();
+	// 
+
+	/**
+	  * Get Title.
+	  *
+	  * @return mixed
+	  */
+	 abstract public function getTitle();
 
 	/**
 	 * Render frontend markup for the payment.
@@ -89,7 +91,7 @@ abstract class PWCommercePayment extends WireData implements Module
 	abstract protected function captureOrder($orderId, bool $debug = false);
 
 	/**
-	 * Confirm payment capture was successfull.
+	 * Confirm payment capture was successful.
 	 *
 	 * @param mixed $response
 	 * @param array $options
@@ -111,12 +113,13 @@ abstract class PWCommercePayment extends WireData implements Module
 	 * Returns the reason of failure
 	 * @return string
 	 */
-	// /**
-  * Get Failure Reasonx.
-  *
-  * @return mixed
-  */
- abstract public function getFailureReasonx();
+
+	/**
+	  * Get Failure Reasonx.
+	  *
+	  * @return mixed
+	  */
+	 abstract public function getFailureReasonx();
 
 	########################
 	// +++++++++++++
@@ -144,22 +147,22 @@ abstract class PWCommercePayment extends WireData implements Module
 		return $total;
 	}
 
-	// /**
-  * Add Product.
-  *
-  * @param mixed $title
-  * @param mixed $price
-  * @param mixed $quantity
-  * @param mixed $tax_percentage
-  * @return mixed
-  */
- public function addProduct($title, $price, $quantity, $tax_percentage = null) {
+	/**
+	  * Add Product.
+	  *
+	  * @param mixed $title
+	  * @param mixed $price
+	  * @param mixed $quantity
+	  * @param mixed $tax_percentage
+	  * @return mixed
+	  */
+	public function addProduct($title, $price, $quantity, $tax_percentage = null) {
 	// 	// ############
 	// 	// TODO DELETE THIS METHOD AND BELOW EVENTUALLY
 
 	// 	$product = new PWCommercePaymentProduct($title, $price, $quantity, $tax_percentage);
 	// 	$this->products->add($product);
-	// }
+	}
 
 	###########
 	# >>> TODO - DELETE IF NO LONGER IN USER <<<

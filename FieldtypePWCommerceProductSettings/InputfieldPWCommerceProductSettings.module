@@ -98,7 +98,7 @@ class InputfieldPWCommerceProductSettings extends Inputfield
    * @param bool $renderValueMode
    * @return string|mixed
    */
-  public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+  public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
     return parent::renderReady($parent, $renderValueMode);
   }
 

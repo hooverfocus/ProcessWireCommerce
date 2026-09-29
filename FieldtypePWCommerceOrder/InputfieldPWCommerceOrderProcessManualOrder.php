@@ -1364,14 +1364,16 @@ class InputfieldPWCommerceOrderProcessManualOrder extends WireData
 
 	// TODO - REFACTOR THIS! IT IS NEAR IDENTICAL TO PROCESSINPUT AND PROCESSINPUTEXISTING! NEED TO MAKE ONE AGNOSTIC METHOD THAT RETURNS A WIREARRAY OF WIREDATA OF LINE ITEMS! WE CAN THEN PASS THAT WIREARRAY TO WHICHEVER PROCESS THAT NEEDS IT! E.G. FOR SAVING LINE ITEMS, FOR CREATING LINE ITEMS OR FOR LIVE CALCULATIONS IN UTILITIES!!!
 
+	// 
 	// /**
-  * Set Live Order Line Items Values.
-  *
-  * @param array $inEditOrderLineItemsProductsIDs
-  * @param array $inEditOrderLineItemsIDs
-  * @return array
-  */
- private function setLiveOrderLineItemsValues(array $inEditOrderLineItemsProductsIDs, array $inEditOrderLineItemsIDs): array {
+	//   * Set Live Order Line Items Values.
+	//   *
+	//   * @param array $inEditOrderLineItemsProductsIDs
+	//   * @param array $inEditOrderLineItemsIDs
+	//   * @return array
+	// 	*/  
+	//  private function setLiveOrderLineItemsValues(array $inEditOrderLineItemsProductsIDs, array $inEditOrderLineItemsIDs): array {
+
 	/**
 	 * Set Live Order Line Items Values.
 	 *

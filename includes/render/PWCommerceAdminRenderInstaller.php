@@ -407,16 +407,15 @@ class PWCommerceAdminRenderInstaller extends WireData
 	 */
 	private function getPWCommerceRequiredFeaturesList() {
 		/*
+		REQUIRED
 
-																																																																				REQUIRED
-
-																																																																				products
-																																																																				orders
-																																																																				shipping
-																																																																				taxes
-																																																																				- settings
-																																																																				- rates
-																																																																				*/
+		products
+		orders
+		shipping
+		taxes
+		- settings
+		- rates
+		*/
 		$requiredFeaturesList = [
 			// products
 			'products' => [
@@ -444,6 +443,7 @@ class PWCommerceAdminRenderInstaller extends WireData
 		// --------
 		return $requiredFeaturesList;
 	}
+
 	/**
 	 * Get P W Commerce Optional Features List Markup.
 	 *
@@ -1451,6 +1451,7 @@ class PWCommerceAdminRenderInstaller extends WireData
 		$dependencies = $this->getPWCommerceOptionalFeaturesDependencies();
 		return isset($dependencies[$dependent]);
 	}
+	
 	/**
 	 * Is P W Commerce Optional Feature A Dependency.
 	 *

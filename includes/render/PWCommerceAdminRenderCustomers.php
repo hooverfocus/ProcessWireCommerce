@@ -923,13 +923,16 @@ class PWCommerceAdminRenderCustomers extends WireData
 		return $out;
 	}
 
+
 	// /**
-  * Get Latest Orders Table Row.
-  *
-  * @param Page $page
-  * @return mixed
-  */
- private function getLatestOrdersTableRow(Page $page) {
+	//   * Get Latest Orders Table Row.
+	//   *
+	//   * @param Page $page
+	//   * @return mixed
+	//   */
+	// private function getLatestOrdersTableRow(Page $page) {
+	// }
+
 	/**
 	 *    get Single View Table Row.
 	 *
@@ -957,6 +960,7 @@ class PWCommerceAdminRenderCustomers extends WireData
 			$orderTotalPriceFormattedAsShopCurrency,
 		];
 	}
+
 	/**
 	 * Get Order Combined Statuses Array.
 	 *

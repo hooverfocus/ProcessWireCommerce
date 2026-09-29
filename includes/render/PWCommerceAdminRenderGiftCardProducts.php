@@ -21,16 +21,8 @@ namespace ProcessWire;
 
 class PWCommerceProcessRenderGiftCardProducts extends WireData
 {
-
-
-
-
-
-
 	private $options = [];
 	private $context;
-
-
 
 	/**
 	 *   construct.
@@ -180,16 +172,18 @@ class PWCommerceProcessRenderGiftCardProducts extends WireData
 		];
 	}
 
-	//  /**
-   * Get Results Table.
-   *
-   * @param array $items
-   * @param array $headerRow
-   * @param array $rows
-   * @param array $options
-   * @return mixed
-   */
-  public function getResultsTable($items, array $headerRow, array $rows, array $options = []) {
+	//  
+	// /**
+	// * Get Results Table.
+	// *
+	// * @param array $items
+	// * @param array $headerRow
+	// * @param array $rows
+	// * @param array $options
+	// * @return mixed
+   	// */
+  //public function getResultsTable($items, array $headerRow, array $rows, array $options = []) {
+	
 	/**
 	 * Get Results Table.
 	 *

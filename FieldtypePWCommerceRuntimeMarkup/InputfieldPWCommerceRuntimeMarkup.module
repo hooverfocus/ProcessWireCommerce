@@ -35,32 +35,29 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 		];
 	}
 
-
-
-
-
 	/*
-													 ***** IMPORTANT NOTES *****
-													 - InputfieldPWCommerceRuntimeMarkup is very similar to InputfieldRepeater.
-													 - It is based off of it.
-													 - Repeaters are a special ProcessWire 'construct'
-													 - Various fields and ProcessWire classes are repeater-aware AND have implemented code to handle them
-													 - Some of these are hookable, some are not.
-													 - Some of the logic is also in .js files
-													 - For instance, ProcessPageEditImageSelect.js
-													 - Saving CROPS or RESIZED PWCommerce Product Variants' images are affected by this in 'Save As Copy' mode
-													 - ProcessPageEdit::ajaxSave handles the replacement of 'repeater' in the HTTP_X_FIELDNAME variable
-													 - ProcessPageEditImageSelect::init also handles the suffix.
-													 - Above makes it hard to get away from the suffix '_repeater'
-													 - For now, we use the suffix just to get around the issues
-													 - For more information @see the following:
-													 FieldtypeRepeater::hookProcessPageEditAjaxSave
-													 ProcessPageEdit::ajaxSave
-													 ProcessPageEditImageSelect::init
-													 - We don't want to depend on FieldtypeRepeater::hookProcessPageEditAjaxSave
-													 - We implement custom solution in PWCommerceHooks
-													 - Only run if !isNormalEdit
-													 */
+	 ***** IMPORTANT NOTES *****
+	 - InputfieldPWCommerceRuntimeMarkup is very similar to InputfieldRepeater.
+	 - It is based off of it.
+	 - Repeaters are a special ProcessWire 'construct'
+	 - Various fields and ProcessWire classes are repeater-aware AND have implemented code to handle them
+	 - Some of these are hookable, some are not.
+	 - Some of the logic is also in .js files
+	 - For instance, ProcessPageEditImageSelect.js
+	 - Saving CROPS or RESIZED PWCommerce Product Variants' images are affected by this in 'Save As Copy' mode
+	 - ProcessPageEdit::ajaxSave handles the replacement of 'repeater' in the HTTP_X_FIELDNAME variable
+	 - ProcessPageEditImageSelect::init also handles the suffix.
+	 - Above makes it hard to get away from the suffix '_repeater'
+	 - For now, we use the suffix just to get around the issues
+	 - For more information @see the following:
+	 FieldtypeRepeater::hookProcessPageEditAjaxSave
+	 ProcessPageEdit::ajaxSave
+	 ProcessPageEditImageSelect::init
+	 - We don't want to depend on FieldtypeRepeater::hookProcessPageEditAjaxSave
+	 - We implement custom solution in PWCommerceHooks
+	 - Only run if !isNormalEdit
+	 */
+
 	const REPEATER_SUFFIX = '_repeater';
 
 	/**
@@ -652,24 +649,22 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 					//-------------
 					// >>>>>>>>>>>>>
 					/*
-																																																																			 TODO -> WORKING ON DEMAND AJAX LOAD OF PAGES USING HTMX; THIS WOULD HAVE TO CHANGE!
-																																																																			 - this would need returning titles and ids only
-																																																																			 - test if saving is OK, i.e. unloaded pages should not disappear!
-																																																																			 - test if getting all pages is the issue versus loading their inputfields (i.e., getRuntimeItemInputfields called in buildForm())
-																																																																			 - TODO: move the pages grabbing to a different method + see if can do findRaw with object return?
-																																																																			 - needed page variables in the loop in buildForm() are:
-																																																																			 * $page->id
-																																																																			 * $page->title
-																																																																			 * $page->editUrl()
-																																																																			 *
-																																																																			 $page->editUrl() <- this is the important one! would it be an issue if we used findRaw() could we build it by getting the prefix only, e.g. '/processwire/page/edit/?id=3090' and just add the ID? we can do that in init here, by checking the one for the parent page! i.e. $this->page? could even create a method for it
-																																																																			 >>> SOME RESULTS <<<
-																																																																			 - testing with 204 variants
-																																																																			 - if loading fields via $this->getRuntimeItemInputfield(), i.e. $page->template->fieldgroup->getPageInputfields($page, PwCommerce::REPEATER_SUFFIX . "{$page->id}", $options);, it takes about 15 - 18 seconds to load the page
-																																																																			 - if passing empty InputfieldWrapper to $wrapper in buildForm(), instead of above, it takes about 4 seconds
-																																																																			 */
-
-
+					 TODO -> WORKING ON DEMAND AJAX LOAD OF PAGES USING HTMX; THIS WOULD HAVE TO CHANGE!
+					 - this would need returning titles and ids only
+					 - test if saving is OK, i.e. unloaded pages should not disappear!
+					 - test if getting all pages is the issue versus loading their inputfields (i.e., getRuntimeItemInputfields called in buildForm())
+					 - TODO: move the pages grabbing to a different method + see if can do findRaw with object return?
+					 - needed page variables in the loop in buildForm() are:
+					 * $page->id
+					 * $page->title
+					 * $page->editUrl()
+					 *
+					 $page->editUrl() <- this is the important one! would it be an issue if we used findRaw() could we build it by getting the prefix only, e.g. '/processwire/page/edit/?id=3090' and just add the ID? we can do that in init here, by checking the one for the parent page! i.e. $this->page? could even create a method for it
+					 >>> SOME RESULTS <<<
+					 - testing with 204 variants
+					 - if loading fields via $this->getRuntimeItemInputfield(), i.e. $page->template->fieldgroup->getPageInputfields($page, PwCommerce::REPEATER_SUFFIX . "{$page->id}", $options);, it takes about 15 - 18 seconds to load the page
+					 - if passing empty InputfieldWrapper to $wrapper in buildForm(), instead of above, it takes about 4 seconds
+					 */
 
 					$pages = $this->wire('pages')->find("parent={$this->page->id}, id={$newItemsIDs}");
 
@@ -692,15 +687,16 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 				$dynamicLoadingContentID = (int) $input->get('dynamic_loading_content_id');
 				// -------
 				$out = $this->renderDynamicLoadingContent($dynamicLoadingContentID);
-			} /*else if ($context === 'dynamically_manage_inputfields') {
-																												 @NOTE: SEE METHOD ITSELF; NOT IN US FOR NOW
-																												 $out = "<p>WORKING ON DYNAMICALLY MANAGE INPUTFIELDS to handle its ajax request</p>";
-																												 // TODO IN FUTURE MIGHT NEED $context?
-																												 $response = $this->processDynamicallyManageInputfieldsAjaxRequest($input);
-																												 if (!empty($response)) {
-																												 $out = $response;
-																												 }
-																												 }*/
+			} /* else if ($context === 'dynamically_manage_inputfields') {
+				 @NOTE: SEE METHOD ITSELF; NOT IN US FOR NOW
+				 $out = "<p>WORKING ON DYNAMICALLY MANAGE INPUTFIELDS to handle its ajax request</p>";
+				 // TODO IN FUTURE MIGHT NEED $context?
+				 $response = $this->processDynamicallyManageInputfieldsAjaxRequest($input);
+				 if (!empty($response)) {
+				 $out = $response;
+				 }
+				 }
+				*/
 		}
 
 		// return $out;
@@ -711,33 +707,35 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 
 	// TODO @NOTE: NOT IN USE FOR NOW
 	// @NOTE: WOULD REQUIRE input->get AS WELL since input->post in inputfield will be intercepted by processwire
-	// /**
-  * Process Dynamically Manage Inputfields Ajax Request.
-  *
-  * @param mixed $input
-  * @return mixed
-  */
- private function processDynamicallyManageInputfieldsAjaxRequest($input) {
-	// 	// TODO IN FUTURE MIGHT NEED $context?
-	// 	$response = '';
-	// 	if ($this->isRuntimeContextDynamicallyManageInputfields()) {
-	// 		$inputfieldName = $this->runtimeContextDynamicallyManageInputfields[$this->runtimeContext];
-	//
-	// 		if ($inputfieldName) {
-	// 			// @note: THIS WILL CHECK IF INPUTFIELD IS VIRTUAL VS REAL!!!
-	// 			$inputfield = $this->getRuntimeContextInputfield($inputfieldName);
-	//
-	// 			if ($inputfield) {
-	// 				// GET the Ajax Request Respose for this context that dynamically manages its inputfields
-	// 				$response = $inputfield->processAjaxRequest($input, $this->page);
-	// 			}
-	// 		}
-	// 	}
+	// 
+	/**
+	  * Process Dynamically Manage Inputfields Ajax Request.
+	  *
+	  * @param mixed $input
+	  * @return mixed
+	  */
+	private function processDynamicallyManageInputfieldsAjaxRequest($input) {
+		// 	// TODO IN FUTURE MIGHT NEED $context?
+		// 	$response = '';
+		// 	if ($this->isRuntimeContextDynamicallyManageInputfields()) {
+		// 		$inputfieldName = $this->runtimeContextDynamicallyManageInputfields[$this->runtimeContext];
+		//
+		// 		if ($inputfieldName) {
+		// 			// @note: THIS WILL CHECK IF INPUTFIELD IS VIRTUAL VS REAL!!!
+		// 			$inputfield = $this->getRuntimeContextInputfield($inputfieldName);
+		//
+		// 			if ($inputfield) {
+		// 				// GET the Ajax Request Respose for this context that dynamically manages its inputfields
+		// 				$response = $inputfield->processAjaxRequest($input, $this->page);
+		// 			}
+		// 		}
+		// 	}
 
-	//
-	// 	// ---
-	// 	return $response;
-	// }
+		//
+		// 	// ---
+		// 	return $response;
+		return ''; // comment this out if previous return is enabled
+	}
 
 	/**
 	 * Get Runtime Markup Item Wrapper Label.
@@ -1174,7 +1172,7 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		// @KONGONDO TODO - DO WE NEED THIS? IF YES, AMEND AS NEEDED
 
 		// TODO: DELETE IF NOT IN USE
@@ -1499,21 +1497,16 @@ class InputfieldPWCommerceRuntimeMarkup extends Inputfield implements Inputfield
 
 
 		/* TODO: THIS IS WHY NEW SHIPPING RATES NOT GETTING SAVED!
-																											- in the loop below, we call this:
-																											$wrapper = $this->wrappers[$page->id];
-																											$wrapper->processInput($input);
-																											- if empty values, it means we don't go through loop, hence above is not called, so no input is processed for that inputfield!
-																											- secondly, new values will not have an id; we need to use their temporaryIDAsSuffix or somehow add then to this->wrappers or process differently if new, e.g. hand over to context inputfield directly, like we do for virtual fields!
-																											*/
+		- in the loop below, we call this:
+		$wrapper = $this->wrappers[$page->id];
+		$wrapper->processInput($input);
+		- if empty values, it means we don't go through loop, hence above is not called, so no input is processed for that inputfield!
+		- secondly, new values will not have an id; we need to use their temporaryIDAsSuffix or somehow add then to this->wrappers or process differently if new, e.g. hand over to context inputfield directly, like we do for virtual fields!
+		*/
 
 
 		// existing items
 		foreach ($value as $key => $page) {
-
-
-
-
-
 
 			// TODO OK? TEST THOROUGHLY! -> WITH AND WITHOUT VARIANTS
 			// CHECK IF PROCESSING DYNAMICALLY LOADED CONTENT

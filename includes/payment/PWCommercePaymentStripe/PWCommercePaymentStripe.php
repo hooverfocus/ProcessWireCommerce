@@ -169,7 +169,7 @@ class PWCommercePaymentStripe extends PWCommercePayment implements PWCommerceAdd
 		}
 
 		/*@note DIFFERENT FROM PAYPAL IN THAT IN PAYPAL, WE CREATE ORDER ON DEMAND, WHEN THE PAY BUTTON IS CLICKED; THEN, WE CAPTURE ORDER IN THE MODAL; IN STRIPE PAYMENT INTENTS, IT IS THE OPPOSITE; WE CREATE THE ORDER IMMEDIATELY WE LAND ON THE CHECKOUT PAYMENT PAGE; I.E. BY THE TIME WE DISPLAY THE CARD FORM, WE SHOULD HAVE CREATED THE PAYMENT INTENT; THIS IS SO THAT WE CAN PASS THE PAYMENT INTENT CLIENT SECRET TO THE FORM ON THE THAT PAGE WHEN WE CALL RENDER; SECONDLY, CAPTURE IS DONE ON CLIENT SIDE AND VERIFIED BY WEBHOOKS or by checking status of PaymentIntent. For now, we use the latter.
-																																																																																																																																																																																																																																																																												  TODO - implement webhooks?*/
+		*/
 		$this->createOrder();
 		/** @var WireData $order */
 		$order = $this->pwcommerce->getOrder();

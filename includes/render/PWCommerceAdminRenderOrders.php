@@ -526,13 +526,15 @@ class PWCommerceAdminRenderOrders extends WireData {
 	 *
 	 * @return string $out Modal markup.
 	 */
+
 	// /**
-  * Get Modal Markup For Confirm Mark Order As.
-  *
-  * @param string $mode
-  * @return mixed
-  */
- private function getModalMarkupForConfirmMarkOrderAs($mode = 'payment_mark_as_paid') {
+	//   * Get Modal Markup For Confirm Mark Order As.
+	//   *
+	//   * @param string $mode
+	//   * @return mixed
+	//  */
+	//  private function getModalMarkupForConfirmMarkOrderAs($mode = 'payment_mark_as_paid') {
+	
 	/**
 	 * Get Modal Markup For Order Status Actions.
 	 *
@@ -654,6 +656,7 @@ class PWCommerceAdminRenderOrders extends WireData {
 		// ===========
 		return $applyButton;
 	}
+	
 	/**
 	 * Get rendered button for the modal for actioning a selected order status.
 	 *

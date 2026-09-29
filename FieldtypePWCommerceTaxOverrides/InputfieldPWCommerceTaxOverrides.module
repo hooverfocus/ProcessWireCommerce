@@ -115,7 +115,7 @@ class InputfieldPWCommerceTaxOverrides extends Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		$this->preloadInputfieldAssets();
 		// init locations for location select dropdown
 		$locations = $this->getLocations();

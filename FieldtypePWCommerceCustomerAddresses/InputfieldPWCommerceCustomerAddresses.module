@@ -155,7 +155,7 @@ class InputfieldPWCommerceCustomerAddresses extends Inputfield
 	 * @param bool $renderValueMode
 	 * @return string|mixed
 	 */
-	public function renderReady(Inputfield $parent = null, bool $renderValueMode = false) {
+	public function renderReady(?Inputfield $parent = null, $renderValueMode = false) {
 		//#########
 		$this->preloadInputfieldAssets();
 		return parent::renderReady($parent, $renderValueMode);
