@@ -1,3 +1,16 @@
+# This fork of the below module
+
+> **Note for users:** I am not a developer and I hardly know what I'm doing, nonetheless, I tried fixing the issues that cropped up while trying to install the original ProcessWire Commerce module. 
+
+It seems that somewhere along the updates on the original repo, something broke in the code (misaligned comments, duplicate function definitions), as it would throw syntax errors all over the place and break the site's functioning. 
+I did not touch the underlying functionality of the module (or so I hope) beyond the scope of fixing the install issues, so any prior unresolved bugs or notes from the original author remain as-is. 
+I personally managed to get this updated fork installed on a 3.0.259 ProcessWire version, so you should too.
+
+I cannot claim responsibility to any broken features, so please use this fork at your own risk and review the code before deploying it to a live site. I will not be able to help you if something else is broken or unfixed from the original, sorry.
+
+---
+---
+
 # ProcessWire Commerce
 
 Mono repo for ProcessWire Commerce, the feature-rich native full e-commerce solution for ProcessWire.
