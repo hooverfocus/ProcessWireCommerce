@@ -109,15 +109,17 @@ trait TraitPWCommerceTax
 	// TODO MOVE TO utilities orders traits? utilities checkout traits?
 
 	// TODO: @SEE getOrderLineItemDiscountsAmount() => DELETE BELOW IF THEREFORE NOT IN USE
-	// /**
-  * Get Product Discount Amount.
-  *
-  * @return mixed
-  */
- public function getProductDiscountAmount() {
-	//     // 2. DISCOUNTS
-	//     // 'discount_amount' => (float) $value->discountAmount, // +++
-	// }
+	// 
+	/**
+	  * Get Product Discount Amount.
+	  *
+	  * @return mixed
+	  */
+	 public function getProductDiscountAmount() {
+		// 2. DISCOUNTS
+		// 'discount_amount' => (float) $value->discountAmount, // +++
+	}
+
 	/**
 	 * Get Order Country Tax Data.
 	 *
@@ -209,10 +211,6 @@ trait TraitPWCommerceTax
 		return $shippingCountryShippingTaxOverrides;
 	}
 
-
-
-
-
 	/**
 	 * Get the category tax override rate for current order line item.
 	 *
@@ -297,9 +295,6 @@ trait TraitPWCommerceTax
 		return $taxRateAsPercentage;
 	}
 
-
-
-
 	// checks if an order line item is taxable
 	// based on:
 	// (i) order-level setting: e.g. manual order tax exemption OR customer is tax exempt
@@ -348,12 +343,13 @@ trait TraitPWCommerceTax
 		return $taxable === 1;
 	}
 
-	// /**
-  * Is Charge E U Digital Goods Tax.
-  *
-  * @return bool
-  */
- public function isChargeEUDigitalGoodsTax() {
+	 // /**
+	 //  * Is Charge E U Digital Goods Tax.
+	 //  *
+	 //  * @return bool
+	 //  */
+	 // public function isChargeEUDigitalGoodsTax() {
+	
 	/**
 	 *    is Charge E U Digital Goods Tax.
 	 *

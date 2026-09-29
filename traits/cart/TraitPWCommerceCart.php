@@ -961,19 +961,18 @@ trait TraitPWCommerceCart
 
 		// --------
 		return $result;
-
 	}
 
 	// /**
-  *    update Cart.
-  *
-  * @param mixed $products
-  * @param mixed $rem_products
-  * @return mixed
-  */
- public function ___updateCart($products = null, $rem_products = null) {
-	// TODO @KONGONDO AMENDMENT $isRedirect!
-	// @note: for some htmx cases, we don't need to redirect; we use $isRedirect argument for this
+	//  *    update Cart.
+	//  *
+	//  * @param mixed $products
+	//  * @param mixed $rem_products
+	//  * @return mixed
+	//  */
+	// public function ___updateCart($products = null, $rem_products = null) {
+		// TODO @KONGONDO AMENDMENT $isRedirect!
+		// @note: for some htmx cases, we don't need to redirect; we use $isRedirect argument for this
 
 	/**
 	 *    update Cart.

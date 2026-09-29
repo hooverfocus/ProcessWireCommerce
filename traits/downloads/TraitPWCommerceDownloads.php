@@ -248,13 +248,15 @@ trait TraitPWCommerceDownloads
 	}
 	// ---------------------------
 	// TODO @KONGONDO AMENDMENT
-	// /**
-  * Find Downloads From Order.
-  *
-  * @param PWCommerceOrder $order
-  * @return mixed
-  */
- public function findDownloadsFromOrder(PWCommerceOrder $order) {
+	// 
+	//	/**
+	 //  * Find Downloads From Order.
+	 //  *
+	 //  * @param PWCommerceOrder $order
+	 //  * @return mixed
+	 //  */
+	 // public function findDownloadsFromOrder(PWCommerceOrder $order) {
+
 	/**
 	 * Find Downloads From Order I D.
 	 *

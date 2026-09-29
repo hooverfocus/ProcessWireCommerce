@@ -82,19 +82,22 @@ trait TraitPWCommerceUtilities {
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INIT ~~~~~~~~~~~~~~~~~~
 
-	// /**
-  *   construct.
-  *
-  * @param mixed $options
-  * @return mixed
-  */
- public function __construct($options = null) {
+	// 
+	 //	/**
+	 //  *   construct.
+	 //  *
+	 //  * @param mixed $options
+	 //  * @return mixed
+	 // */
+	 // public function __construct($options = null) {
+	
 	/**
 	 *   init Utilities.
 	 *
 	 * @param mixed $options
 	 * @return mixed
 	 */
+	//	}
 	public function __initUtilities($options = null) {
 		// parent::__construct();
 		// TODO????

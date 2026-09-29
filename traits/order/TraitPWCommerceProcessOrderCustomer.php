@@ -4,19 +4,12 @@ namespace ProcessWire;
 
 trait TraitPWCommerceProcessOrderCustomer {
 	/**
-	 * Gets the session's order.
+	 * Get Order Customer.
 	 *
 	 * @param mixed $orderPage
 	 * @return mixed
 	 */
-	public function ___getOrderCustomer($orderPage = null) {
-		// /**
-  * Get Order Customer.
-  *
-  * @param mixed $orderPage
-  * @return mixed
-  */
- public function getOrderCustomer($orderPage = null) {
+ 	public function getOrderCustomer($orderPage = null) {
 		// TODO MAKE HOOKABLE? SO CAN ADD EXTRA STUFF, E.G. IF CUSTOMER TO PAY DIGITAL GOODS TAX?
 		// ============
 		// @note: init this just to avoid errors in case no order
